@@ -13,6 +13,7 @@ It can be very usefull in builds to show **Trigger** or **Colliders**.
 - Works with rotation *(unity default gizmo doesnt have rotation)*
 
 ## Example Code
+RuntimeGizmoDrawer.cs should be placed on the scene camera in orde to work.
 RuntimeGizmoDrawer's functions should be called in Update in order to work correctly.
 ```c#
 RuntimeGizmoDrawer.DrawWireCube(transform.position, transform.rotation, 1, Color.green);
