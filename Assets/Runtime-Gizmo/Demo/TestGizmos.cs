@@ -2,11 +2,10 @@
 //Author: JayCode
 //Description: Test the implementation
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-using JayCode.Gizmo.Internal;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class TestGizmo : MonoBehaviour
+public class TestGizmos : MonoBehaviour
 {
     public Color color = Color.green;
     public type Type;
@@ -20,13 +19,13 @@ public class TestGizmo : MonoBehaviour
         switch (Type)
         {
             case type.Cube:
-                RuntimeGizmoDrawer.DrawWireCube(transform.position,rotation? transform.rotation:Quaternion.identity, size.x, color);
+                RuntimeGizmosDrawer.DrawWireCube(transform.position,rotation? transform.rotation:Quaternion.identity, size.x, color);
                 break;
             case type.Box:
-                RuntimeGizmoDrawer.DrawWireBox(transform.position, rotation ? transform.rotation : Quaternion.identity, size, color);
+                RuntimeGizmosDrawer.DrawWireBox(transform.position, rotation ? transform.rotation : Quaternion.identity, size, color);
                 break;
             case type.BoxCollider:
-                RuntimeGizmoDrawer.DrawWireBox(box, color);
+                RuntimeGizmosDrawer.DrawWireBox(box, color);
                 break;
   
         }

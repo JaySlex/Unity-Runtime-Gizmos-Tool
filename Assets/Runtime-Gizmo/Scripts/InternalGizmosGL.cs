@@ -4,11 +4,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 using UnityEngine;
 
-namespace JayCode.Gizmo.Internal
+namespace JayCode.Gizmos.Internal
 {
-    public class InternalGizmoGL
+    public class InternalGizmosGL
     {
-        public static void DrawWireBox(GizmoBoxDrawRequest request)
+        public static void DrawWireBox(GizmosBoxDrawRequest request)
         {
             var halfDimensions = request.scale * 0.5f; // This now represents half-width, half-height, and half-depth
             var points = new Vector3[8];
@@ -33,8 +33,8 @@ namespace JayCode.Gizmo.Internal
 
             GL.PushMatrix();
 
-            RuntimeGizmoDrawer.InitializeMat();
-            RuntimeGizmoDrawer.mat.SetPass(0);
+            RuntimeGizmosDrawer.InitializeMat();
+            RuntimeGizmosDrawer.mat.SetPass(0);
 
             GL.Begin(GL.LINES);
             GL.Color(request.color);

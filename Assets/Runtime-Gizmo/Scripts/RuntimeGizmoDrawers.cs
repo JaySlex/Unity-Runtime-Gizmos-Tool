@@ -6,23 +6,23 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 using System.Collections.Generic;
 using UnityEngine;
-using JayCode.Gizmo.Internal;
+using JayCode.Gizmos.Internal;
 
 [ExecuteInEditMode]
-public class RuntimeGizmoDrawer : MonoBehaviour
+public class RuntimeGizmosDrawer : MonoBehaviour
 {
 
     public static Material mat;
 
 
-    private static List<GizmoBoxDrawRequest> boxDrawRequests = new List<GizmoBoxDrawRequest>();
+    private static List<GizmosBoxDrawRequest> boxDrawRequests = new List<GizmosBoxDrawRequest>();
 
     private void OnPostRender()
     {
         for (int i = 0; i < boxDrawRequests.Count; i++)
         {
 
-            InternalGizmoGL.DrawWireBox(boxDrawRequests[i]);
+            InternalGizmosGL.DrawWireBox(boxDrawRequests[i]);
         }
         boxDrawRequests.Clear();
     }
@@ -50,11 +50,11 @@ public class RuntimeGizmoDrawer : MonoBehaviour
 
     public static void DrawWireCube(Vector3 position, Quaternion rotation,float size, Color color)
     {
-        GizmoBoxDrawRequest request = new GizmoBoxDrawRequest(position, rotation, new Vector3(size,size,size), color);
+        GizmosBoxDrawRequest request = new GizmosBoxDrawRequest(position, rotation, new Vector3(size,size,size), color);
 
         boxDrawRequests.Add(request);
         //Render also in editor
-        InternalGizmoGL.DrawWireBox(request);
+        InternalGizmosGL.DrawWireBox(request);
     }
     public static void DrawWireCube(Vector3 position, float size, Color color)
     {
@@ -63,11 +63,11 @@ public class RuntimeGizmoDrawer : MonoBehaviour
 
     public static void DrawWireBox(Vector3 position, Quaternion rotation, Vector3 scale, Color color)
     {
-        GizmoBoxDrawRequest request = new GizmoBoxDrawRequest(position, rotation, scale, color);
+        GizmosBoxDrawRequest request = new GizmosBoxDrawRequest(position, rotation, scale, color);
 
         boxDrawRequests.Add(request);
         //Render also in editor
-        InternalGizmoGL.DrawWireBox(request);
+        InternalGizmosGL.DrawWireBox(request);
     }
 
     public static void DrawWireBox(BoxCollider box, Color color)
