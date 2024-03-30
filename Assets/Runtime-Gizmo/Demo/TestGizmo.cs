@@ -8,7 +8,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class TestGizmo : MonoBehaviour
 {
-    public Color color;
+    public Color color = Color.green;
     public type Type;
     public bool rotation = true;
     public Vector3 size;
